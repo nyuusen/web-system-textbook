@@ -1,7 +1,7 @@
 ## コンテナビルド
 
 ```sh
-docker build -t ubuntu-telnet .
+docker build -t ubuntu-server .
 ```
 
 ## コンテナ起動
@@ -9,5 +9,5 @@ docker build -t ubuntu-telnet .
 ※対話モードで起動する
 
 ```sh
-docker run -it ubuntu-telnet
+docker run -it ubuntu-server
 ```
