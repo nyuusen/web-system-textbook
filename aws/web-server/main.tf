@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-east-1"
+  region = "ap-northeast-1"
 }
 
 resource "aws_iam_role" "ec2_role" {
@@ -45,7 +45,7 @@ resource "aws_instance" "this" {
   iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
 
   tags = {
-    Name = "MyUbuntuInstance"
+    Name = "web-server-sandbox"
   }
 }
 
