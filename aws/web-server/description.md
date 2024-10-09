@@ -123,4 +123,11 @@ $ openssl x509 -in server.crt -noout -text
 
 # HTTPS対応のWebサーバーを構築する
 
+## Apacheの設定
 
+```
+sudo apt -y install apache2
+# etc/apache2/sites-available/000-default.conf 更新
+sudo mv /var/www/html/index.html /var/www/html/index.html.org
+echo "<h1>Test Page</h1>" | sudo tee /var/www/html/index.html
+```
