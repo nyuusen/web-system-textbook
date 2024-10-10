@@ -131,3 +131,28 @@ sudo apt -y install apache2
 sudo mv /var/www/html/index.html /var/www/html/index.html.org
 echo "<h1>Test Page</h1>" | sudo tee /var/www/html/index.html
 ```
+
+## HTTPSの設定
+
+- Apache拡張モジュールを有効化
+```
+sudo a2enmod ssl
+```
+
+- 証明書と秘密鍵を/etc/apache2に配置
+  - 証明書: 証明書はクライアントにより検証され、なりすましを防止されていないことを証明する
+  - 秘密鍵: クライアントは証明書に含まれた公開鍵を使用して通信するので、サーバ側での復号に秘密鍵が必要となる
+
+```
+sudo mv server.crt /etc/apache2/
+sudo mv server.key /etc/apache2/
+```
+
+- 設定を読み込んで、apachectlを再起動
+
+```
+sudo a2ensite default-ssl.conf
+sudo apachectl restart
+```
+
+- 無事にHTTPSを使ってドメインアクセスできた。
